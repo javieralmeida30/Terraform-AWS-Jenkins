@@ -107,10 +107,10 @@ resource "aws_db_instance" "default" {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket = "terraformjavieralmeida"
+  bucket = "bucketname"
 
   tags = {
-    Name        = "terraformjavieralmeida"
+    Name        = "bucketname"
     Environment = "Test"
   }
 }
