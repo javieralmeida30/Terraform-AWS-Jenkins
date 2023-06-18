@@ -56,7 +56,7 @@ resource "aws_instance" "jenkins_server" {
   instance_type          = "t2.micro"
   subnet_id              = aws_default_subnet.default_az1.id
   vpc_security_group_ids = [ aws_security_group.allow_tls.id ]
-  key_name               = "ansible2"
+  key_name               = "key.pem"
   tags = {
     Name = "Jenkins_server"
   }
@@ -73,7 +73,7 @@ resource "null_resource" "name" {
 
     type = "ssh"
     user = "ec2-user"
-    private_key = file("~/Downloads/ansible2.pem")
+    private_key = file("~/Downloads/key.pem")
     host = aws_instance.jenkins_server.public_ip
   }
 
